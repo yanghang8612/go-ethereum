@@ -745,6 +745,13 @@ func TestHasRightElement(t *testing.T) {
 	}
 }
 
+func TestEmptyProof(t *testing.T) {
+	trie, _ := randomTrie(4096)
+	proof := memorydb.New()
+	t.Log(trie.Prove([]byte{}, 0, proof))
+	t.Log(proof)
+}
+
 // TestEmptyRangeProof tests the range proof with "no" element.
 // The first edge proof must be a non-existent proof.
 func TestEmptyRangeProof(t *testing.T) {
